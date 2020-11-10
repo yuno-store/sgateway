@@ -4,6 +4,19 @@
  *
  *          Simple Gateway
  *
+ *  {"command": "-install-binary sgateway id=11 content64=$$(sgateway)"}
+ *  {"command": "create-config sgateway.gw1 version=1 id=11"}
+ *  {"command": "create-yuno id=11 realm_name=utils yuno_role=sgateway yuno_name=gw1 yuno_alias=utils"}
+ *
+ *  {"command": "-update-binary id=11 content64=$$(sgateway)"}
+ *
+ *  command-yuno id=11 service=__root__ command=write-str attribute=input_url value=tcp://0.0.0.0:2011
+ *  command-yuno id=11 service=__root__ command=write-str attribute=output_url value=tcp://x.x.x.x:yy
+ *
+ *  command-yuno id=11 service=__root__ command=view-attrs
+ *
+ *  command-yuno id=11 service=__yuno__ command=set-gclass-trace gclass_name=Tcp0 level=traffic set=1
+ *
  *          Copyright (c) 2020 Niyamaka.
  *          All Rights Reserved.
  ****************************************************************************/
@@ -27,7 +40,7 @@
 PRIVATE char fixed_config[]= "\
 {                                                                   \n\
     'yuno': {                                                       \n\
-        'yuno_role': '"ROLE_SGATEWAY"',                         \n\
+        'yuno_role': '"ROLE_SGATEWAY"',                             \n\
         'classifiers': ['realm', 'app']                             \n\
     }                                                               \n\
 }                                                                   \n\
@@ -50,7 +63,7 @@ PRIVATE char variable_config[]= "\
         'daemon_log_handlers': {                                    \n\
             'to_file': {                                            \n\
                 'handler_type': 'file',                             \n\
-                'filename_mask': 'sgateway-MM-DD.log',          \n\
+                'filename_mask': 'sgateway-MM-DD.log',              \n\
                 'handler_options': 255                              \n\
             },                                                      \n\
             'to_udp': {                                             \n\
@@ -74,8 +87,8 @@ PRIVATE char variable_config[]= "\
     },                                                              \n\
     'services': [                                                   \n\
         {                                                           \n\
-            'name': 'sgateway',                                 \n\
-            'gclass': 'Sgateway',                               \n\
+            'name': 'sgateway',                                     \n\
+            'gclass': 'Sgateway',                                   \n\
             'default_service': true,                                \n\
             'autostart': true,                                      \n\
             'autoplay': false,                                      \n\
