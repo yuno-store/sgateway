@@ -282,7 +282,7 @@ PRIVATE int create_input_side(hgobj gobj)
 {
     PRIVATE_DATA *priv = gobj_priv_data(gobj);
 
-    priv->gobj_input_side = gobj_create_unique(
+    priv->gobj_input_side = gobj_create_service(
         "__input_side__",
         GCLASS_IOGATE,
         0,
@@ -334,7 +334,7 @@ PRIVATE int create_output_side(hgobj gobj)
 {
     PRIVATE_DATA *priv = gobj_priv_data(gobj);
 
-    priv->gobj_output_side = gobj_create_unique(
+    priv->gobj_output_side = gobj_create_service(
         "__output_side__",
         GCLASS_IOGATE,
         0,
