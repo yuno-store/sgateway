@@ -122,6 +122,9 @@ PRIVATE void mt_create(hgobj gobj)
     priv->ptxMsgs = gobj_danger_attr_ptr(gobj, "txMsgs");
     priv->prxMsgs = gobj_danger_attr_ptr(gobj, "rxMsgs");
 
+    create_input_side(gobj);
+    create_output_side(gobj);
+
     /*
      *  Do copy of heavy used parameters, for quick access.
      *  HACK The writable attributes must be repeated in mt_writing method.
@@ -155,6 +158,11 @@ PRIVATE int mt_start(hgobj gobj)
     PRIVATE_DATA *priv = gobj_priv_data(gobj);
 
     gobj_start(priv->timer);
+
+    hgobj agent_client = gobj_find_service("agent_client", FALSE);
+    if(!agent_client) {
+        gobj_play(gobj);
+    }
     return 0;
 }
 
@@ -212,9 +220,6 @@ PRIVATE int mt_play(hgobj gobj)
         }
         return -1;
     }
-
-    create_input_side(gobj);
-    create_output_side(gobj);
 
     open_input_side(gobj);
     open_output_side(gobj);
