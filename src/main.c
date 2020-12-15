@@ -30,7 +30,7 @@
 #define APP_NAME        ROLE_SGATEWAY
 #define APP_DOC         "Simple Gateway"
 
-#define APP_VERSION     "4.3.0"
+#define APP_VERSION     "4.3.1"
 #define APP_SUPPORT     "<niyamaka at yuneta.io>"
 #define APP_DATETIME    __DATE__ " " __TIME__
 
@@ -153,13 +153,18 @@ int main(int argc, char *argv[])
      *------------------------------------------------*/
     helper_quote2doublequote(fixed_config);
     helper_quote2doublequote(variable_config);
-    yuneta_set_gobj_startup_functions(
-        db_load_persistent_attrs,   // dbsimple.c
-        db_save_persistent_attrs,   // dbsimple.c
-        db_remove_persistent_attrs, // dbsimple.c
-        db_list_persistent_attrs,   // dbsimple.
-        command_parser,             // command_parser.c
-        stats_parser                // stats_parser.c
+    yuneta_setup(
+        dbattrs_startup,
+        dbattrs_end,
+        dbattrs_load_persistent,
+        dbattrs_save_persistent,
+        dbattrs_remove_persistent,
+        dbattrs_list_persistent,
+        command_parser,
+        stats_parser,
+        0,
+        0,
+        0
     );
     return yuneta_entry_point(
         argc, argv,
