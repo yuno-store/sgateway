@@ -41,7 +41,7 @@ PRIVATE char fixed_config[]= "\
 {                                                                   \n\
     'yuno': {                                                       \n\
         'yuno_role': '"ROLE_SGATEWAY"',                             \n\
-        'classifiers': ['realm', 'app']                             \n\
+        'tags': ['yuneta', 'utils']                                 \n\
     }                                                               \n\
 }                                                                   \n\
 ";
