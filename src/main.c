@@ -6,7 +6,7 @@
  *
  *  {"command": "-install-binary sgateway id=11 content64=$$(sgateway)"}
  *  {"command": "create-config sgateway.gw1 version=1 id=11"}
- *  {"command": "create-yuno id=11 realm_name=utils yuno_role=sgateway yuno_name=gw1 yuno_alias=utils"}
+ *  {"command": "create-yuno id=11 realm_name=utils yuno_role=sgateway yuno_name=gw1 yuno_tag=utils"}
  *
  *  {"command": "-update-binary id=11 content64=$$(sgateway)"}
  *
