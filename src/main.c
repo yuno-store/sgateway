@@ -30,7 +30,7 @@
 #define APP_NAME        ROLE_SGATEWAY
 #define APP_DOC         "Simple Gateway"
 
-#define APP_VERSION     "4.8.1"
+#define APP_VERSION     "4.8.3"
 #define APP_SUPPORT     "<niyamaka at yuneta.io>"
 #define APP_DATETIME    __DATE__ " " __TIME__
 
