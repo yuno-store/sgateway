@@ -63,7 +63,7 @@ PRIVATE char variable_config[]= "\
         'daemon_log_handlers': {                                    \n\
             'to_file': {                                            \n\
                 'handler_type': 'file',                             \n\
-                'filename_mask': 'sgateway-MM-DD.log',              \n\
+                'filename_mask': 'sgateway-W.log',              \n\
                 'handler_options': 255                              \n\
             },                                                      \n\
             'to_udp': {                                             \n\
