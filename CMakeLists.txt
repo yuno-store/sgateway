@@ -70,6 +70,7 @@ TARGET_LINK_LIBRARIES(sgateway
     lzma        # used by libunwind
     uuid
     m
+    util
 )
 
 ##############################################
