@@ -1,8 +1,8 @@
 ##############################################
 #   CMake
 ##############################################
-project(sgateway C)
 cmake_minimum_required(VERSION 3.0)
+project(sgateway C)
 include(CheckIncludeFiles)
 include(CheckSymbolExists)
 
